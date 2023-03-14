@@ -30,7 +30,7 @@
         <div class="card fondo">
           <h4 class="card-header"><strong class="text-white">Listado de Reservaciones</strong></h4>              
           <div class="card-body">
-            <a class="btn btn-secondary" th:href="@{/reservaciones/nueva}" role="button"><i class="fas fa-file" aria-hidden="true"></i> Nueva Reservacion</a>            
+            <a class="btn btn-secondary" th:href="@{/reservacion/nueva}" role="button"><i class="fas fa-file" aria-hidden="true"></i> Nueva Reservacion</a>            
             <hr>
             <div class="alert alert-success" role="alert" th:if="${msg!=null}" th:text="${msg}">
             </div>
@@ -46,15 +46,15 @@
                 </tr>
               </thead>
               <tbody>
-                <tr th:each="reservacion : ${reservacion}" class="text-white fw-bold">
-                  <th scope="row" th:text="${reservacion.id}"></th>
-                  <td th:text="${reservacion.nombre_cliente}"></td>
-                  <td th:text="${reservacion.personas}"></td>
-                  <td th:text="${reservacion.fecha}"></td>
-                  <td th:text="${reservacion.precio}"></td>
-                   <td><img class="rounded mx-auto d-block" th:src="@{/images/{img}(img=${reservacion.imagen})}" alt="Generic placeholder image" width="200" height="200"></td>
+                <tr th:each="reservaciones : ${reservaciones}" class="text-white fw-bold">
+                  <th scope="row" th:text="${reservaciones.id}"></th>
+                  <td th:text="${reservaciones.nombre_cliente}"></td>
+                  <td th:text="${reservaciones.personas}"></td>
+                  <td th:text="${reservaciones.fecha}"></td>
+                  <td th:text="${reservaciones.precio}"></td>
+                   <td><img class="rounded mx-auto d-block" th:src="@{/images/{img}(img=${reservaciones.imagen})}" alt="Generic placeholder image" width="200" height="200"></td>
                   <td>
-                    <a th:href="@{/reservaciones/eliminar(id=${reservacion.id})}" onclick="return confirm('¿Estas seguro?')" class="btn btn-secondary btn-sm" role="button" title="Eliminar"><i class="fas fa-trash" aria-hidden="true"></i></a>
+                    <a th:href="@{/reservacion/eliminar(id=${reservacion.id})}" onclick="return confirm('¿Estas seguro?')" class="btn btn-secondary btn-sm" role="button" title="Eliminar"><i class="fas fa-trash" aria-hidden="true"></i></a>
                   </td>
                 </tr>
                                 
