@@ -31,7 +31,7 @@ public class ReservacionController {
 	public String buscarReservacion(@RequestParam("id") int idReservacion, Model model) {
 		Reservacion reservacion = serviceReservacion.buscarPorId(idReservacion);
 		model.addAttribute("reservacion", reservacion);
-		return "reservaciones/formReservacion";
+		return "reservaciones/formReservaciones";
 	}
 
 	@PostMapping("/guardar")
@@ -50,7 +50,7 @@ public class ReservacionController {
 
 	@GetMapping("/nueva")
 	public String nuevaReservacion(Reservacion reservacion) {
-		return "reservaciones/formReservacion";
+		return "reservaciones/formReservaciones";
 	}
 
 	@GetMapping("/eliminar")
@@ -69,7 +69,7 @@ public class ReservacionController {
 		for (Reservacion r : lista) {
 			System.out.println(r);
 		}
-		return "reservaciones/listaReservacion";
+		return "reservaciones/listaReservaciones";
 	}
 
 	@InitBinder
