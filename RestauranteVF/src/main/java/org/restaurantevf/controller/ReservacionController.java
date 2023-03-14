@@ -28,7 +28,7 @@ public class ReservacionController {
 	private IntServiceReservacion serviceReservacion;
 
 	@GetMapping("/buscar")
-	public String buscarLibro(@RequestParam("id") int idReservacion, Model model) {
+	public String buscarReservacion(@RequestParam("id") int idReservacion, Model model) {
 		Reservacion reservacion = serviceReservacion.buscarPorId(idReservacion);
 		model.addAttribute("reservacion", reservacion);
 		return "reservaciones/formReservacion";
@@ -49,12 +49,12 @@ public class ReservacionController {
 	}
 
 	@GetMapping("/nueva")
-	public String nuevaLibro(Reservacion reservacion) {
+	public String nuevaReservacion(Reservacion reservacion) {
 		return "reservaciones/formReservacion";
 	}
 
 	@GetMapping("/eliminar")
-	public String eliminarCategoria(@RequestParam("id") int idReservacion, RedirectAttributes model) {
+	public String eliminarReservacion(@RequestParam("id") int idReservacion, RedirectAttributes model) {
 		serviceReservacion.eliminar(idReservacion);
 		model.addFlashAttribute("msg", "Reservacion Eliminado");
 		return "redirect:/reservaciones/index";
