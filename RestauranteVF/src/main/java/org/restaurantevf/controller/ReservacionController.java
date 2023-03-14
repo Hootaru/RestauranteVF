@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/reservaciones")
+@RequestMapping("/reservacion")
 public class ReservacionController {
 
 	@Autowired
@@ -31,7 +31,7 @@ public class ReservacionController {
 	public String buscarReservacion(@RequestParam("id") int idReservacion, Model model) {
 		Reservacion reservacion = serviceReservacion.buscarPorId(idReservacion);
 		model.addAttribute("reservacion", reservacion);
-		return "reservaciones/formReservaciones";
+		return "reservacion/formReservaciones";
 	}
 
 	@PostMapping("/guardar")
@@ -44,20 +44,20 @@ public class ReservacionController {
 			}
 		}
 		serviceReservacion.guardar(reservacion);
-		return "redirect:/reservaciones/index";
+		return "redirect:/reservacion/index";
 
 	}
 
 	@GetMapping("/nueva")
 	public String nuevaReservacion(Reservacion reservacion) {
-		return "reservaciones/formReservaciones";
+		return "reservacion/formReservaciones";
 	}
 
 	@GetMapping("/eliminar")
 	public String eliminarReservacion(@RequestParam("id") int idReservacion, RedirectAttributes model) {
 		serviceReservacion.eliminar(idReservacion);
 		model.addFlashAttribute("msg", "Reservacion Eliminado");
-		return "redirect:/reservaciones/index";
+		return "redirect:/reservacion/index";
 
 	}
 
@@ -69,7 +69,7 @@ public class ReservacionController {
 		for (Reservacion r : lista) {
 			System.out.println(r);
 		}
-		return "reservaciones/listaReservaciones";
+		return "reservacion/listaReservaciones";
 	}
 
 	@InitBinder
