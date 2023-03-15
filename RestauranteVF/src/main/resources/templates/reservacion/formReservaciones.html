@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Evaluacion | Creación de libros</title>
+    <title>RestauranteVF | Reservaciones</title>
     <!-- Bootstrap core CSS -->
     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -27,7 +27,7 @@
       <div class="container"> 
 
         <div class="card">
-          <h4 class="card-header"><strong>Datos del libro</strong></h4>              
+          <h4 class="card-header"><strong>Datos de la reservacion</strong></h4>              
           <div class="card-body">
             <form method="post"  enctype="multipart/form-data"
             th:action="@{/libros/guardar}"
@@ -41,46 +41,39 @@
               <div class="row">
                 <div class="col-md-3"> 
                   <div class="form-group">
-                    <label for="titulo">Titulo</label>
-                    <input type="text" class="form-control" id="titulo" name="titulo" th:field="*{titulo}" required="required">
+                    <label for="nombre_cliente">Nombre</label>
+                    <input type="text" class="form-control" id="nombre_cliente" name="nombre_cliente" th:field="*{nombre_cliente}" required="required">
                   </div>
                 </div>
                 <div class="col-md-9"> 
                   <div class="form-group">
-                    <label for="precio">Precio</label>
-                    <input type="text" class="form-control" id="precio" name="precio" th:field="*{precio}"  required="required">
+                    <label for="personas">Numero de personas</label>
+                    <input type="text" class="form-control" id="personas" name="personas" th:field="*{personas}"  required="required">
                   </div> 
                 </div>    
               </div>    
                 <div class="col-md-3"> 
                   <div class="form-group">
-                    <label for="edicion">Edicion</label>
-                    <input type="text" class="form-control" name="edicion" id="edicion" th:field="*{edicion}" required="required">
+                    <label for="fecha">Fecha de reservacion</label>
+                    <input type="text" class="form-control" name="fecha" id="fecha" th:field="*{fecha}" required="required">
                   </div>  
                 </div>
               <div class="row">
                 <div class="col-md-3"> 
                   <div class="form-group">
-                    <label for="existencias">Existencia</label>
-                    <input type="text" class="form-control" name="existencias" id="existencias" th:field="*{existencias}" required="required">
-                  </div>
-                </div>
-                <div class="row">
-                <div class="col-md-3"> 
-                  <div class="form-group">
-                    <label for="isbn">Isbn</label>
-                    <input type="text" class="form-control" name="isbn" id="isbn" th:field="*{isbn}"  required="required">
+                    <label for="precio">Precio</label>
+                    <input type="text" class="form-control" name="precio" id="precio" th:field="*{precio}" required="required">
                   </div>
                 </div>
                 <div class="col-md-3"> 
                   <div class="form-group">
-                    <label for="archivoImagen">Imagen</label>
+                    <label for="archivoImagen">Identificacion</label>
                     <input type="file" class="form-control-file" name="archivoImagen" id="archivoImagen">
                   </div>
                 </div>
               </div> 
               
-              <button type="submit" class="btn btn-primary">Guardar</button>  
+              <button type="submit" class="btn btn-primary">Reservar</button>  
             </form>
           </div>
         </div>
@@ -102,7 +95,7 @@
     <script>
       
       $(function () {
-          $("#edicion").datepicker({dateFormat: 'dd-mm-yy'});
+          $("#fecha").datepicker({dateFormat: 'dd-mm-yy'});
         }
       );
       
