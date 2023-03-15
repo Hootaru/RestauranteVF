@@ -30,8 +30,8 @@
           <h4 class="card-header"><strong>Datos de la reservacion</strong></h4>              
           <div class="card-body">
             <form method="post"  enctype="multipart/form-data"
-            th:action="@{/libros/guardar}"
-            th:object="${libro}">   
+            th:action="@{/reservacion/guardar}"
+            th:object="${reservacion}">   
             <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role='alert'>
 				Por favor corrija los siguientes errores:
 				<ul>
