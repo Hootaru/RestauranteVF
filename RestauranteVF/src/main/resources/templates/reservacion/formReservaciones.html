@@ -45,7 +45,7 @@
                     <input type="text" class="form-control" id="nombre_cliente" name="nombre_cliente" th:field="*{nombre_cliente}" required="required">
                   </div>
                 </div>
-                <div class="col-md-9"> 
+                <div class="col-md-2"> 
                   <div class="form-group">
                     <label for="personas">Numero de personas</label>
                     <input type="text" class="form-control" id="personas" name="personas" th:field="*{personas}"  required="required">
@@ -59,9 +59,9 @@
                   </div>  
                 </div>
               <div class="row">
-                <div class="col-md-3"> 
+                <div class="col-md-2"> 
                   <div class="form-group">
-                    <label for="precio">Precio</label>
+                    <label for="precio">Total Estimado</label>
                     <input type="text" class="form-control" name="precio" id="precio" th:field="*{precio}" required="required">
                   </div>
                 </div>
@@ -90,7 +90,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>    
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>     
     <script src="tinymce/tinymce.min.js"></script>
     <script>
       
