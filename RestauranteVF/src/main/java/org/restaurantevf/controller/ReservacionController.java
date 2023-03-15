@@ -37,7 +37,7 @@ public class ReservacionController {
 	@PostMapping("/guardar")
 	public String guardar(Reservacion reservacion, @RequestParam("archivoImagen") MultipartFile multiPart) {
 		if (!multiPart.isEmpty()) {
-			String ruta = "c:/empleos/img-vacantes/"; 
+			String ruta = "c:/Usuarios/jonna/git/RestauranteVF/RestauranteVF/src/main/resources/static/images"; 
 			String nombreImagen = Utileria.guardarArchivo(multiPart, ruta);
 			if (nombreImagen != null) {
 				reservacion.setImagen(nombreImagen);
