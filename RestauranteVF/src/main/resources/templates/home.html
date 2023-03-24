@@ -50,7 +50,7 @@
             <img class="rounded mx-auto d-block" th:src="@{/logos/{img} (img=${restaurante.imagen}) }" alt="Generic placeholder image" width="220" height="220">            
           </div>
           <div class="col-md-9">
-            <h2 th:text="${restaurante.nombre}">Arquitecto</h2>
+            <h2 th:text="${restaurante.nombre}">Arquitec</h2>
             <h6 class="card-title"><strong>Categoría: </strong> <span th:text="${restaurante.pais.nombre}"></span></h6>
             <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${#dates.format(restaurante.fecha, 'dd-MM-yyyy')}"></span></h6>
             <p th:text="${restaurante.descripcion}">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
