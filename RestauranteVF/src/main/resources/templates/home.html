@@ -24,8 +24,8 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <div class="container">
-          <h3>Encuentra el trabajo que andas buscando.</h3>
-          Puedes buscar por descripción y categoría.
+          <h3>Encuentra el restaurante que andas buscando.</h3>
+          Puedes buscar por descripción y país.
           <form th:action="@{/search}" th:object="${search}" method="get" class="form-inline">
             <input type="text" th:field="*{descripcion}" class="form-control mb-3" placeholder="Escriba una búsqueda">&nbsp;
             <select th:field="*{pais.id}" class="custom-select custom-select mb-3">
@@ -42,7 +42,7 @@
       </div>
             
       <div class="container"> 
-        <h2 class="font-weight-bold text-center text-capitalize">DESTACADOS</h2>
+        <h2 class="font-weight-bold text-center text-capitalize">Restaurantes Destacados</h2>
         <div th:if="${msg != null}" class='alert alert-success' th:text="${msg}" role='alert'></div>
         <hr>        
         <div class="row" th:each="restaurante : ${restaurantes}">
