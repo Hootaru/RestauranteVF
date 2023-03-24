@@ -11,9 +11,6 @@ public class WebConfig implements WebMvcConfigurer {
 	@Value("${empleosapp.ruta.imagenes}")
 	private String rutaImagenes;
 	
-	@Value("${empleosapp.ruta.cv}")
-	private String rutaCv;
-	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		
