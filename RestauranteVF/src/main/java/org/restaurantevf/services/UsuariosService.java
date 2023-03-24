@@ -3,7 +3,7 @@ package org.restaurantevf.services;
 import java.util.List;
 
 import org.restaurantevf.entity.Usuario;
-
+//comentario
 public interface UsuariosService {
 	void guardar(Usuario usuario);
 	void eliminar(Integer idUsuario);
