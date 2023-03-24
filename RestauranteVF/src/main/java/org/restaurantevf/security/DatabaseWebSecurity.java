@@ -1,6 +1,7 @@
 package org.restaurantevf.security;
 
 import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -34,43 +35,43 @@ public class DatabaseWebSecurity {
 	 */
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		
-        http.authorizeRequests() 
-            	
-    	// Los recursos estáticos no requieren autenticación
-        .antMatchers(
-                "/bootstrap/**",                        
-                "/images/**",
-                "/tinymce/**",
-                "/logos/**").permitAll()
-        
-        // Las vistas públicas no requieren autenticación
-        .antMatchers("/", 
-        			 "/login",
-        			 "/signup",
-        			 "/search",
-        			 "/bcrypt/**",
-        			 "/about",
-        			 "/vacantes/view/**").permitAll()
-        
-        // Asignar permisos a URLs por ROLES
-        .antMatchers("/solicitudes/create/**",
-        			 "/solicitudes/save/**").hasAuthority("USUARIO")
-        
-        .antMatchers("/solicitudes/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
-        .antMatchers("/vacantes/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
-        .antMatchers("/categorias/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
-        .antMatchers("/usuarios/**").hasAnyAuthority("ADMINISTRADOR")
-        
-        // Todas las demás URLs de la Aplicación requieren autenticación
-        .anyRequest().authenticated()
-        // El formulario de Login no requiere autenticacion
-        .and().formLogin().loginPage("/login").permitAll()        
-        .and().logout().permitAll();
-        
-        return http.build();
-    }
+	http.authorizeHttpRequests()
 	
+	// Los recursos estáticos no requieren autenticación
+    .requestMatchers(
+            "/bootstrap/**",                        
+            "/images/**",
+            "/tinymce/**",
+            "/logos/**").permitAll()
+    
+    // Las vistas públicas no requieren autenticación
+    .requestMatchers("/", 
+    			 "/login",
+    			 "/signup",
+    			 "/search",
+    			 "/bcrypt/**",
+    			 "/about",
+    			 "/vacantes/view/**").permitAll()
+
+
+    // Asignar permisos a URLs por ROLES
+    .requestMatchers("/solicitudes/create/**",
+    			 "/solicitudes/save/**").hasAuthority("USUARIO")
+    
+    .requestMatchers("/solicitudes/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
+    .requestMatchers("/vacantes/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
+    .requestMatchers("/categorias/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
+    .requestMatchers("/usuarios/**").hasAnyAuthority("ADMINISTRADOR")
+    
+    // Todas las demás URLs de la Aplicación requieren autenticación
+    .anyRequest().authenticated()
+    // El formulario de Login no requiere autenticacion
+    .and().formLogin().loginPage("/login").permitAll()        
+    .and().logout().permitAll();
+    
+    return http.build();
+}
+	            	
 	/**
 	 *  Implementación de Spring Security que encripta passwords con el algoritmo Bcrypt
 	 * @return
