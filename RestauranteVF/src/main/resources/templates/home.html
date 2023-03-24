@@ -24,7 +24,7 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron bg-danger text-white">
         <div class="container">
-          <h3>Encuentra el restaurante que andas buscando.</h3>
+          <h3>Encuentra el restaurante de tus sueños</h3>
           Puedes buscar por descripción y país.
           <form th:action="@{/search}" th:object="${search}" method="get" class="form-inline">
             <input type="text" th:field="*{descripcion}" class="form-control mb-3" placeholder="Escriba una búsqueda">&nbsp;
@@ -36,7 +36,7 @@
 			  </option>
             </select>&nbsp;
             
-            <button type="submit" class="btn btn-danger mb-3">Buscar</button>            
+            <button type="submit" class="btn btn-black mb-3">Buscar</button>            
           </form>
         </div>
       </div>
