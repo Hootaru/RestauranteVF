@@ -10,7 +10,7 @@ public interface RestauranteRepository extends JpaRepository<Restaurante, Intege
 	
 	List<Restaurante> findByDestacadoAndEstatusOrderByIdDesc(int destacado, String estatus);
 	
-	List<Restaurante> findBySalarioBetweenOrderByPrecioDesc(double s1, double s2);
+	List<Restaurante> findByPrecioBetweenOrderByPrecioDesc(double s1, double s2);
 	
 	List<Restaurante> findByEstatusIn(String[] estatus);
 
