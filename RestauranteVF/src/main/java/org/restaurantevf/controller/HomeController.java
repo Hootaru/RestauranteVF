@@ -37,7 +37,7 @@ public class HomeController {
 	@Autowired
 	private PaisService servicePais;
 	
-	// Inyectamos una instancia desde nuestro ApplicationContexts
+	// Inyectamos una instancia desde nuestro ApplicationContext
     @Autowired
 	private RestauranteService serviceRestaurante;
     
