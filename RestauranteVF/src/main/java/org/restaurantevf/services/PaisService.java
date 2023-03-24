@@ -12,5 +12,5 @@ public interface PaisService {
 	void eliminar(Integer idPais);
 	List<Pais> buscarTodos();
 	Pais buscarPorId(Integer idPais);
-	Page<Pais> buscarTodas(Pageable page);
+	Page<Pais> buscarTodos(Pageable page);
 }
