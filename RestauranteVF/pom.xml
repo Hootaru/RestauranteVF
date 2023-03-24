@@ -46,6 +46,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+			
+		<!-- Requerido para trabajar Thymeleaf Spring Security Tags -->		
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
+		</dependency>		
+		
+		<!-- Requerido para trabajar Spring Security -->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>	
+		
 	</dependencies>
 
 	<build>
