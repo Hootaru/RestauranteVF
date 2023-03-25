@@ -58,7 +58,7 @@ public class HomeController {
 	 * @param session
 	 * @return
 	 */
-	@GetMapping("/indexx")
+	@GetMapping("/index")
 	public String mostrarIndex(Authentication authentication, HttpSession session) {		
 		
 		// Como el usuario ya ingreso, ya podemos agregar a la session el objeto usuario.
@@ -74,7 +74,7 @@ public class HomeController {
 			session.setAttribute("usuario", usuario);
 		}
 		
-		return "redirect:/busqueda";
+		return "redirect:/";
 	}
 	
 	/**
