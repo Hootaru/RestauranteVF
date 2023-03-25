@@ -49,7 +49,7 @@ public class BusquedaController {
     @Autowired
     private PasswordEncoder passwordEncoder;
   
-	@GetMapping("/indexx")
+	@GetMapping("/index")
 	public String mostrarBusqueda() {
 		return "busqueda";
 	}
@@ -79,15 +79,6 @@ public class BusquedaController {
 		List<Restaurante> lista = serviceRestaurante.buscarByExample(example);
 		model.addAttribute("vacantes", lista);
 		return "home";
-	}
-	
-	/**
-	 * Metodo que muestra la vista de la pagina de Acerca
-	 * @return
-	 */
-	@GetMapping("/about")
-	public String mostrarAcerca() {			
-		return "acerca";
 	}
 	
 	/**
