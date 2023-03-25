@@ -99,7 +99,7 @@ body{
 .header{
     height: 70vh;
     /* 02 */
-    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0, 0, 0, .80) 100%), url(../Images/restauranteback.jpg);
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0, 0, 0, .80) 100%), url(../images/restauranteback.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
