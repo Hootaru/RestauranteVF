@@ -7,13 +7,13 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
-      <a class="nav-link" th:href="@{/solicitudes/indexPaginate}">Solicitudes</a>
+      <a class="nav-link" th:href="@{/busquedas/indexx}">Busqueda</a>
 	   </li>
 	   <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
-	      <a class="nav-link" th:href="@{/vacantes/indexPaginate}">Vacantes</a>
+	      <a class="nav-link" th:href="@{/restaurantes/indexPaginate}">Restaurantes</a>
 	   </li>
 	   <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
-	      <a class="nav-link" th:href="@{/categorias/indexPaginate}">Categorías</a>
+	      <a class="nav-link" th:href="@{/paises/indexPaginate}">Paises</a>
 	   </li>
 	   <li class="nav-item" sec:authorize="hasAnyAuthority('ADMINISTRADOR')">
 	      <a class="nav-link" th:href="@{/usuarios/index}" >Usuarios</a>
