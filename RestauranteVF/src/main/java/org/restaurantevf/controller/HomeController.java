@@ -49,7 +49,7 @@ public class HomeController {
   
 	@GetMapping("/")
 	public String mostrarHome() {
-		return "home";
+		return "index";
 	}
 	
 	/**
