@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japan</title>
     <link th:href="@{/css/estilos1.css}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -12,25 +17,17 @@
 <body>
 
 
-    <header>
-
-        <div class="contenedor">
-            <h2 class="logotipo">HELLO JAPAN</h2>
-            <nav>
-
-            <a href="index.html" class="activo">Home</a>
-            <a href="reservas.php" >Bookings</a>
-            <a href="#">About</a>
-            
-            </nav>
-        </div>
-
-    </header>
-
+    <header th:insert="fragmentos/menu :: menu-principal"></header>
 
     <!-- Texto en la imagen -->
 
-    <header th:insert="fragmentos/menu :: menu-principal"></header>
+    <header class="header" id="inicio">
+        <div class="contenedor head">
+            <h1 class="titulo">ようこそ</h1>
+            <p class="copy">Welcome To Japan</p>
+        </div>
+        
+    </header>
 
     <!-- Informacion Principal -->
 
@@ -71,7 +68,10 @@
         
     </main>
 
-		<footer th:insert="fragmentos/footer :: pie-pagina" class="footer"></footer>
-    
+    	<footer th:insert="fragmentos/footer :: pie-pagina" class="footer"></footer>
+    	
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> 
+   <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+          	
 </body>
 </html>
