@@ -120,32 +120,6 @@ public class HomeController {
 	}
 	
 	/**
-	 * Método para realizar búsquedas desde el formulario de búsqueda del HomePage
-	 * @param vacante
-	 * @param model
-	 * @return
-	 */
-	@GetMapping("/search")
-	public String buscar(@ModelAttribute("search") Restaurante  restaurante, Model model) {
-		
-		/**
-		 * La busqueda de vacantes desde el formulario debera de ser únicamente en Vacantes con estatus 
-		 * "Aprobada". Entonces forzamos ese filtrado.
-		 */
-		restaurante.setEstatus("Aprobada");
-		
-		// Personalizamos el tipo de busqueda...
-		ExampleMatcher matcher  = ExampleMatcher.matching().
-			// and descripcion like '%?%'
-			withMatcher("descripcion", ExampleMatcher.GenericPropertyMatchers.contains());
-		
-		Example<Restaurante> example = Example.of(restaurante, matcher);
-		List<Restaurante> lista = serviceRestaurante.buscarByExample(example);
-		model.addAttribute("vacantes", lista);
-		return "home";
-	}
-	
-	/**
 	 * Metodo que muestra la vista de la pagina de Acerca
 	 * @return
 	 */

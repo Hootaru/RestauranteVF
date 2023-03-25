@@ -54,72 +54,6 @@ public class BusquedaController {
 		return "busqueda";
 	}
 	
-	/**
-	 * Método que esta mapeado al botón Ingresar en el menú
-	 * @param authentication
-	 * @param session
-	 * @return
-	 */
-	@GetMapping("/index")
-	public String mostrarIndex(Authentication authentication, HttpSession session) {		
-		
-		// Como el usuario ya ingreso, ya podemos agregar a la session el objeto usuario.
-		String username = authentication.getName();		
-		
-		for(GrantedAuthority rol: authentication.getAuthorities()) {
-			System.out.println("ROL: " + rol.getAuthority());
-		}
-		
-		if (session.getAttribute("usuario") == null){
-			Usuario usuario = serviceUsuarios.buscarPorUsername(username);	
-			//System.out.println("Usuario: " + usuario);
-			session.setAttribute("usuario", usuario);
-		}
-		
-		return "redirect:/";
-	}
-	
-	/**
-	 * Método que muestra el formulario para que se registren nuevos usuarios.
-	 * @param usuario
-	 * @return
-	 */
-	@GetMapping("/signup")
-	public String registrarse(Usuario usuario) {
-		return "formRegistro";
-	}
-	
-	/**
-	 * Método que guarda en la base de datos el usuario registrado
-	 * @param usuario
-	 * @param attributes
-	 * @return
-	 */
-	@PostMapping("/signup")
-	public String guardarRegistro(Usuario usuario, RedirectAttributes attributes) {
-		// Recuperamos el password en texto plano
-		String pwdPlano = usuario.getPassword();
-		// Encriptamos el pwd BCryptPasswordEncoder
-		String pwdEncriptado = passwordEncoder.encode(pwdPlano); 
-		// Hacemos un set al atributo password (ya viene encriptado)
-		usuario.setPassword(pwdEncriptado);	
-		usuario.setEstatus(1); // Activado por defecto
-		usuario.setFechaRegistro(new Date()); // Fecha de Registro, la fecha actual del servidor
-		
-		// Creamos el Perfil que le asignaremos al usuario nuevo
-		Perfil perfil = new Perfil();
-		perfil.setId(3); // Perfil USUARIO
-		usuario.agregar(perfil);
-		
-		/**
-		 * Guardamos el usuario en la base de datos. El Perfil se guarda automaticamente
-		 */
-		serviceUsuarios.guardar(usuario);
-				
-		attributes.addFlashAttribute("msg", "Has sido registrado. ¡Ahora puedes ingresar al sistema!");
-		
-		return "redirect:/login";
-	}
 	
 	/**
 	 * Método para realizar búsquedas desde el formulario de búsqueda del HomePage
@@ -154,15 +88,6 @@ public class BusquedaController {
 	@GetMapping("/about")
 	public String mostrarAcerca() {			
 		return "acerca";
-	}
-	
-	/**
-	 * Método que muestra el formulario de login personalizado.
-	 * @return
-	 */
-	@GetMapping("/login")
-	public String mostrarLogin() {
-		return "formLogin";
 	}
 	
 	/**
