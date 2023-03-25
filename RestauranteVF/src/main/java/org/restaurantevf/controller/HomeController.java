@@ -74,7 +74,7 @@ public class HomeController {
 			session.setAttribute("usuario", usuario);
 		}
 		
-		return "redirect:/busqueda";
+		return "redirect:/";
 	}
 	
 	/**
