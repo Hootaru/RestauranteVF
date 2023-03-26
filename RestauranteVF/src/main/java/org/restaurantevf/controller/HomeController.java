@@ -142,7 +142,7 @@ public class HomeController {
 		Example<Restaurante> example = Example.of(restaurante, matcher);
 		List<Restaurante> lista = serviceRestaurante.buscarByExample(example);
 		model.addAttribute("vacantes", lista);
-		return "home";
+		return "busqueda";
 	}
 	
 	/**
