@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>EmpleosApp | Listado de Usuarios</title>
+    <title>RestauranteVF | Listado de Usuarios</title>
     <!-- Bootstrap core CSS -->
     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -18,7 +18,7 @@
 
   <body>
 
-    <header th:insert="fragments/menu :: menu-principal"></header>
+    <header th:insert="fragmentos/menu :: menu-principal"></header>
 
     <main role="main">     
       <hr>
@@ -41,9 +41,9 @@
               </thead>
               <tbody>
                 <tr th:each="usuario : ${usuarios}">
-                  <td th:text="${usuario.nombre}">Iván Eliseo Tinajero Díaz</td>
-                  <td th:text="${usuario.username}">itinajero</td>                  
-                  <td th:text="${usuario.email}">ivanetinajero@gmail.com</td>
+                  <td th:text="${usuario.nombre}"></td>
+                  <td th:text="${usuario.username}"></td>                  
+                  <td th:text="${usuario.email}"></td>
                   <td th:text="${usuario.estatus == 1 ? 'Activo' : 'Bloqueado' }">Activo</td>
                   
                   <td>
@@ -51,8 +51,8 @@
                     
                     <span th:switch="${usuario.estatus}"> 
                     
-                      <a th:case="'1'" th:href="@{/usuarios/lock/{id} (id=${usuario.id}) }" class="btn btn-success btn-sm" role="button" title="Bloquear el acceso al sistema para este usuario."><i class="fas fa-lock" aria-hidden="true"></i></a>	
-					  <a th:case="'0'" th:href="@{/usuarios/unlock/{id} (id=${usuario.id}) }" class="btn btn-success btn-sm" role="button" title="Permitir el acceso al sistema a este usuario."><i class="fas fa-unlock" aria-hidden="true"></i></a>
+                      <a th:case="'1'" th:href="@{/usuarios/lock/{id} (id=${usuario.id}) }" class="btn btn-danger btn-sm" role="button" title="Bloquear el acceso al sistema para este usuario."><i class="fas fa-lock" aria-hidden="true"></i></a>	
+					  <a th:case="'0'" th:href="@{/usuarios/unlock/{id} (id=${usuario.id}) }" class="btn btn-danger btn-sm" role="button" title="Permitir el acceso al sistema a este usuario."><i class="fas fa-unlock" aria-hidden="true"></i></a>
 					   
 					</span>
                     
@@ -68,7 +68,7 @@
 
     </main>
 
-    <footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>
+    <footer th:insert="fragmentos/footer :: pie-pagina" class="footer"></footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
