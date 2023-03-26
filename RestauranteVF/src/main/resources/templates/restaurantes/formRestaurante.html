@@ -42,13 +42,13 @@
                     <label for="nombre">Nombre</label>
                     <input type="hidden" th:field="*{id}">
                     <input type="hidden" th:field="*{imagen}">
-                    <input type="text" th:field="*{nombre}" class="form-control" id="nombre" name="nombre" placeholder="Titulo de la oferta de trabajo" required="required">
+                    <input type="text" th:field="*{nombre}" class="form-control" id="nombre" name="nombre" placeholder="Nombre del restaurante" required="required">
                   </div>
                 </div>
                 <div class="col-md-9"> 
                   <div class="form-group">
                     <label for="descripcion">Descripción</label>
-                    <input type="text" th:field="*{descripcion}" class="form-control" id="descripcion" name="descripcion" placeholder="Breve descripcion de la oferta de trabajo" required="required">
+                    <input type="text" th:field="*{descripcion}" class="form-control" id="descripcion" name="descripcion" placeholder="Breve descripcion del restaurante" required="required">
                   </div> 
                 </div>    
               </div>    
@@ -97,7 +97,7 @@
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="precio">Costo</label>
-                    <input type="text" class="form-control" name="precio" th:field="*{precio}" id="precio" placeholder="Salario aproximado." required="required">
+                    <input type="text" class="form-control" name="precio" th:field="*{precio}" id="precio" placeholder="Costo aproximado" required="required">
                   </div>
                 </div>                
                 <div class="col-md-3"> 
