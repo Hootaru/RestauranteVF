@@ -42,7 +42,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr th:each="restaurante : ${Restaurantes}">
+                <tr th:each="restaurante : ${restaurantes}">
                   <td th:text="${restaurante.pais.nombre}">Ventas</td>
                   <td th:text="${restaurante.nombre}">Supervisor de Ventas</td>                  
                   <td th:text="${#dates.format(restaurante.fecha, 'dd-MM-yyyy')}">11-01-2019</td>
