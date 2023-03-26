@@ -56,8 +56,8 @@
                   <td th:text="${vacante.destacado==1 ? 'SI' : 'NO' }">Creada</td>
                   -->                  
                   <td>
-                    <a th:href="@{/restaurantes/edit/{id} (id=${restaurante.id}) }" class="btn btn-success btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a th:href="@{/restaurantes/delete/{id} (id=${restaurante.id}) }" class="btn btn-success btn-sm confirmar" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
+                    <a th:href="@{/restaurantes/edit/{id} (id=${restaurante.id}) }" class="btn btn-danger btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                    <a th:href="@{/restaurantes/delete/{id} (id=${restaurante.id}) }" class="btn btn-danger btn-sm confirmar" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
                   </td>
                 </tr>                                              
               </tbody>

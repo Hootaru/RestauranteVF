@@ -45,8 +45,8 @@
                   <td th:text="${pais.nombre}">Recursos Humanos</td>
                   <td th:text="${pais.direccion}">Trabajos relacionados con el area de RH.</td>
                   <td>
-                    <a th:href="@{/paises/edit/{id} (id=${pais.id}) }" class="btn btn-success btn-sm" role="button" title="Editar"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a th:href="@{/paises/delete/{id} (id=${pais.id}) }" class="btn btn-success btn-sm confirmar" role="button" title="Eliminar"><i class="fas fa-trash" aria-hidden="true"></i></a>
+                    <a th:href="@{/paises/edit/{id} (id=${pais.id}) }" class="btn btn-danger btn-sm" role="button" title="Editar"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                    <a th:href="@{/paises/delete/{id} (id=${pais.id}) }" class="btn btn-danger btn-sm confirmar" role="button" title="Eliminar"><i class="fas fa-trash" aria-hidden="true"></i></a>
                   </td>
                 </tr>                                
               </tbody>
