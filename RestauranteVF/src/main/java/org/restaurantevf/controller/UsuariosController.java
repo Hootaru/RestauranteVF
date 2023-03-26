@@ -45,7 +45,7 @@ public class UsuariosController {
 		// Eliminamos el usuario
     	serviceUsuarios.eliminar(idUsuario);
 			
-		attributes.addFlashAttribute("msg", "El usuario fue eliminado!.");
+		attributes.addFlashAttribute("msg", "El usuario fue eliminado!");
 		return "redirect:/usuarios/index";
 	}
     

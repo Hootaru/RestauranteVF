@@ -64,8 +64,8 @@
             </table>
 			<nav th:if="${restaurantes.totalPages > 0}" aria-label="Page navigation example" >
 			  <ul class="pagination">         
-				<li class="page-item"><a th:href="@{/restaurantes/indexPaginate(page=${restaurantes.number - 1})}" class="page-link">Anterior</a></li>			    
-				<li class="page-item"><a th:href="@{/restaurantes/indexPaginate(page=${restaurantes.number + 1})}" class="page-link">Siguiente</a></li>
+				<li class="page-item"><a th:href="@{/restaurantes/indexPaginate(page=${restaurantes.number - 1})}" class="page-link text-danger">Anterior</a></li>			    
+				<li class="page-item"><a th:href="@{/restaurantes/indexPaginate(page=${restaurantes.number + 1})}" class="page-link text-danger">Siguiente</a></li>
 			  </ul>
 			</nav>
             
