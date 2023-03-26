@@ -47,7 +47,7 @@
                   <td th:text="${usuario.estatus == 1 ? 'Activo' : 'Bloqueado' }">Activo</td>
                   
                   <td>
-                    <a th:href="@{/usuarios/delete/{id} (id=${usuario.id}) }" class="btn btn-success btn-sm confirmar" role="button" title="Eliminar"><i class="fas fa-trash" aria-hidden="true"></i></a>
+                    <a th:href="@{/usuarios/delete/{id} (id=${usuario.id}) }" class="btn btn-danger btn-sm confirmar" role="button" title="Eliminar"><i class="fas fa-trash" aria-hidden="true"></i></a>
                     
                     <span th:switch="${usuario.estatus}"> 
                     
