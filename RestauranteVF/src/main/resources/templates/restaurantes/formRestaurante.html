@@ -25,7 +25,7 @@
       <div class="container"> 
 
         <div class="card">
-          <h4 class="card-header"><strong>Datos de la oferta de trabajo</strong></h4>              
+          <h4 class="card-header"><strong>Datos del restaurante</strong></h4>              
           <div class="card-body">
             <form th:action="@{/restaurantes/save}" th:object="${restaurante}" method="post" enctype="multipart/form-data">
             
@@ -69,9 +69,9 @@
                   <div class="form-group">
                     <label for="estatus">Estatus</label>
                     <select class="form-control" name="estatus" th:field="*{estatus}" id="estatus">
-                      <option value="Creada">Creada</option>
-                      <option value="Aprobada">Aprobada</option>
-                      <option value="Eliminada">Eliminada</option>                      
+                      <option value="Creado">Creado</option>
+                      <option value="Aprobado">Aprobado</option>
+                      <option value="Eliminado">Eliminado</option>                      
                     </select>
                   </div>
                 </div>
@@ -96,7 +96,7 @@
               <div class="row">
                 <div class="col-md-3"> 
                   <div class="form-group">
-                    <label for="precio">Salario Ofrecido (Aprox)</label>
+                    <label for="precio">Costo</label>
                     <input type="text" class="form-control" name="precio" th:field="*{precio}" id="precio" placeholder="Salario aproximado." required="required">
                   </div>
                 </div>                
@@ -116,8 +116,8 @@
                   </div> 
                 </div> 
                 <div class="col-md-3">
-                  <label for="imagen">Imagen/Logo</label>
-                  <img class="rounded mx-auto d-block" th:src="@{/logos/{img} (img=${restaurante.imagen}) } " alt="Generic placeholder image" width="200" height="200">            
+                  <label for="imagen">Logo</label>
+                  <img class="rounded mx-auto d-block" th:src="@{/logos/{img} (img=${restaurante.imagen}) } " alt="No Image" width="200" height="200">            
                 </div>
               </div> 
               <button type="submit" class="btn btn-danger">Guardar</button>  
