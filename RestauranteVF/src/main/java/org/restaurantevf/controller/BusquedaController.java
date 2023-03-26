@@ -33,7 +33,7 @@ public class BusquedaController {
     @Autowired
 	private RestauranteService serviceRestaurante;
   
-	@GetMapping("/buscar")
+	@GetMapping("/indexx")
 	public String mostrarBusqueda() {
 		return "busqueda";
 	}
