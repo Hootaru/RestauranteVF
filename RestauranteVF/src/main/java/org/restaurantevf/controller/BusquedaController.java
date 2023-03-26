@@ -1,19 +1,18 @@
 package org.restaurantevf.controller;
 
-import java.util.Date;
 import java.util.List;
 
-import  org.restaurantevf.entity.Perfil;
+
 import org.restaurantevf.entity.Restaurante;
-import org.restaurantevf.entity.Usuario;
+
 import org.restaurantevf.services.PaisService;
 import org.restaurantevf.services.RestauranteService;
-import org.restaurantevf.services.UsuariosService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -34,7 +33,7 @@ public class BusquedaController {
     @Autowired
 	private RestauranteService serviceRestaurante;
   
-	@GetMapping("/index")
+	@GetMapping("/buscar")
 	public String mostrarBusqueda() {
 		return "busqueda";
 	}
