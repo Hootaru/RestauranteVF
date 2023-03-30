@@ -35,7 +35,7 @@
               	<div class="alert alert-danger" role="alert" sec:authorize="isAnonymous()">
 				  ¿Te interesa esta Vacante? <strong>Regístrate</strong> y después ingresa para enviar tu CV.
 				</div>
-                <h5 class="card-title"><strong>Marca: </strong> <span th:text="${restaurante.pais.nombre}">Nombre la categoría</span></h5>
+                <h5 class="card-title"><strong>Pais: </strong> <span th:text="${restaurante.pais.nombre}">Nombre la categoría</span></h5>
                 <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${#dates.format(restaurante.fecha, 'dd-MM-yyyy')}">2019-01-01</span></h6>
                 <h6 class="card-title"><strong>Precio: $</strong><span th:text="${restaurante.precio}">$9000</span></h6>                
                 <p class="card-text" th:text="${restaurante.descripcion}">La descripción corta de la oferta de trabajo</p>
