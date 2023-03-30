@@ -29,9 +29,9 @@
           </div>
           <div class="col-md-9">
             <div class="card">
-              <h4 class="card-header">Reservar el Par <strong><span th:text="${restaurante.nombre}"></span></strong></h4>              
+              <h4 class="card-header">Reservar el Restaurante <strong><span th:text="${restaurante.nombre}"></span></strong></h4>              
               <div class="card-body">
-                <h5 class="card-title"><strong>Marca: </strong><span th:text="${restaurante.pais.nombre}"></span></h5>
+                <h5 class="card-title"><strong>Pais: </strong><span th:text="${restaurante.pais.nombre}"></span></h5>
                 <h6 class="card-title"><strong>Publicado: </strong><span th:text="${#dates.format(restaurante.fecha, 'dd-MM-yyyy')}"></span></h6>
                 <h6 class="card-title"><strong>Precio: </strong><span th:text="${restaurante.precio}">$9000</span></h6>                
                 <p class="card-text" th:text="${restaurante.descripcion}"></p>
@@ -55,7 +55,7 @@
                     </div>
                   </div> 
                   <hr>
-                  <button type="submit" class="btn btn-warning">Reservar</button>  
+                  <button type="submit" class="btn btn-danger">Reservar</button>  
                 </form>
               </div>
             </div> 

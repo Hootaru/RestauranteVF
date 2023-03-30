@@ -42,11 +42,11 @@
                 
                 <div class="card bg-light mb-3" >
                   <div class="card-body">
-                    <h5 class="card-title">Caracteristicas del Par</h5>
+                    <h5 class="card-title">Caracteristicas del Restaurante</h5>
                     <p class="card-text" th:utext="${restaurante.detalles}"></p>
                   </div>
                 </div>                   
-                <a sec:authorize="isAuthenticated() and hasAnyAuthority('USUARIO')" class="btn btn-warning" th:href="@{/reservas/create/{id} (id=${restaurante.id}) }" role="button" title="Quiero aplicar para esta oferta de trabajo."><i class="fas fa-file" aria-hidden="true"></i> Reservar</a>                            
+                <a sec:authorize="isAuthenticated() and hasAnyAuthority('USUARIO')" class="btn btn-danger" th:href="@{/reservas/create/{id} (id=${restaurante.id}) }" role="button" title="Quiero aplicar para esta oferta de trabajo."><i class="fas fa-file" aria-hidden="true"></i> Reservar</a>                            
               </div>
             </div>  
           </div>
