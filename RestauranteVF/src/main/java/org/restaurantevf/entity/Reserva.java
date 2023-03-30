@@ -25,8 +25,8 @@ public class Reserva {
 	private String archivo; 
 
 	@OneToOne
-	@JoinColumn(name = "idCatalogo") // foreignKey en la tabla de solicitudes
-	private Catalogo catalogo;
+	@JoinColumn(name = "idRestaurante") // foreignKey en la tabla de solicitudes
+	private Restaurante restaurante;
 
 	@OneToOne
 	@JoinColumn(name = "idUsuario") // foreignKey en la tabla de usuarios
@@ -60,12 +60,12 @@ public class Reserva {
 		this.archivo = archivo;
 	}
 
-	public Catalogo getCatalogo() {
-		return catalogo;
+	public Restaurante getRestaurante() {
+		return restaurante;
 	}
 
-	public void setCatalogo(Catalogo catalogo) {
-		this.catalogo = catalogo;
+	public void setCatalogo(Restaurante restaurante) {
+		this.restaurante = restaurante;
 	}
 
 	public Usuario getUsuario() {
@@ -87,7 +87,7 @@ public class Reserva {
 	@Override
 	public String toString() {
 		return "Solicitud [id=" + id + ", fecha=" + fecha + ", comentarios=" + comentarios + ", archivo=" + archivo
-				+ ", catalogo=" + catalogo + ", usuario=" + usuario + "]";
+				+ ", restaurante=" + restaurante + ", usuario=" + usuario + "]";
 	}
 
 }

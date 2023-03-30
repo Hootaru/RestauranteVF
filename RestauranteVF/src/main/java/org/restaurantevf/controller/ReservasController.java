@@ -2,6 +2,12 @@ package org.restaurantevf.controller;
 
 import java.util.List;
 
+import org.restaurantevf.entity.Reserva;
+import org.restaurantevf.entity.Usuario;
+import org.restaurantevf.services.ReservasService;
+import org.restaurantevf.services.RestauranteService;
+import org.restaurantevf.services.UsuariosService;
+import org.restaurantevf.util.Utileria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -19,13 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.teniskia.entity.Catalogo;
-import org.teniskia.entity.Reserva;
-import org.teniskia.entity.Usuario;
-import org.teniskia.service.CatalogosService;
-import org.teniskia.service.ReservasService;
-import org.teniskia.service.UsuariosService;
-import org.teniskia.util.Utileria;
+import org.restaurantevf.entity.Restaurante;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -38,7 +38,7 @@ public class ReservasController {
 	
 	// Inyectamos una instancia desde nuestro ApplicationContext
     @Autowired
-	private CatalogosService serviceCatalogos;
+	private RestauranteService serviceRestaurantes;
     
     @Autowired
    	private UsuariosService serviceUsuario;
@@ -80,12 +80,12 @@ public class ReservasController {
 	 * @param model
 	 * @return
 	 */
-	@GetMapping("/create/{idCatalogo}")
-	public String crear(Reserva reserva, @PathVariable Integer idCatalogo, Model model) {
+	@GetMapping("/create/{idRestaurante}")
+	public String crear(Reserva reserva, @PathVariable Integer idRestaurante, Model model) {
 		// Traemos los detalles de la Vacante seleccionada para despues mostrarla en la vista
-		Catalogo catalogo = serviceCatalogos.buscarPorId(idCatalogo);
-		System.out.println("idCatalogo: " + idCatalogo);
-		model.addAttribute("catalogo", catalogo);
+		Restaurante restaurante = serviceRestaurantes.buscarPorId(idRestaurante);
+		System.out.println("idRestaurante: " + idRestaurante);
+		model.addAttribute("restaurante", restaurante);
 		return "reservas/formReserva";
 	}
 	
@@ -127,7 +127,7 @@ public class ReservasController {
 		
 		// Guadamos el objeto solicitud en la bd
 		reservasService.guardar(reserva);
-		attributes.addFlashAttribute("msg", "Gracias por reservar en TenisKIA!");
+		attributes.addFlashAttribute("msg", "Gracias por reservar en RestauranteVF");
 			
 		System.out.println("Reserva:" + reserva);
 		return "redirect:/";		
