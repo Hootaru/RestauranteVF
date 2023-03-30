@@ -1,0 +1,90 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RestauranteVF | Listado de Reservaciones</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" >
+  </head>
+
+  <body>
+
+    <header th:insert="~{fragmentos/menu :: menu-principal}"></header>
+
+    <main role="main">     
+      <hr>
+      <div class="container"> 
+
+        <div class="card">
+          <h4 class="card-header"><strong>Listado de Reservas</strong></h4>              
+          <div class="card-body">
+          	<div th:if="${msg != null}" class='alert alert-success' th:text="${msg}" role='alert'></div>
+            <table class="table table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Pais</th>
+                  <th scope="col">Catalogo</th>
+                  <th scope="col">Nombre Cliente</th>
+                  <th scope="col">Recibida</th>
+                  <th scope="col">Operaciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="reserva : ${reservas.content}">
+                  <td th:text="${reserva.restaurante.pais.nombre}">Finanzas</td>
+                  <td th:text="${reserva.restaurante.nombre}">Contador Público</td>
+                  <td th:text="${reserva.usuario.nombre}">Maria Gómez</td>
+                  <td th:text="${reserva.fecha}">12-01-2019</td>
+                  <td>                    
+                    <a th:href="@{/reservas/delete/{id} (id=${reserva.id}) }" class="btn btn-warning btn-sm confirmar" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>                    
+                    <a th:href="@{/cv/{archivo} (archivo=${reserva.archivo}) } " target="_blank" class="btn btn-warning btn-sm" role="button" title="Descargar Curriculm Vitae."><i class="fas fa-download" aria-hidden="true"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <nav th:if="${reservas.totalPages > 0}" aria-label="Page navigation example" >
+			  <ul class="pagination">         
+			    <li class="page-item"><a th:href="@{/reservas/indexPaginate(page=${reservas.number - 1})}" class="page-link text-warning">Anterior</a></li>			    
+			    <li class="page-item"><a th:href="@{/reservas/indexPaginate(page=${reservas.number + 1})}" class="page-link text-warning">Siguiente</a></li>
+			  </ul>
+			</nav>
+          </div>
+        </div>
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer th:insert="~{fragmentos/footer :: pie-pagina}" class="footer"></footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    
+    <script>
+	
+		// Guardamos en una variable una funcion que muestra un cuadro de dialogo de tipo confirm
+		var dialogoConfirm = function (e) {
+			if (!confirm('¿Realmente desea eliminar el registro?')) 
+				e.preventDefault();
+		};
+
+		// Aplicamos a todos los elementos HTML que tengan la clase CSS 'confirmar' el evento click para que muestre el cuadro de dialogo de confirmacion. 
+		document.querySelectorAll('.confirmar').forEach(function(elemento) {
+			elemento.addEventListener('click', dialogoConfirm, false);
+		});
+	
+	</script>
+         
+  </body>
+</html>
