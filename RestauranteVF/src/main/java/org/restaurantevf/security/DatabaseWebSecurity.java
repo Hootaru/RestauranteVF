@@ -42,6 +42,7 @@ public class DatabaseWebSecurity {
 	            "/bootstrap/**",
 	            "/images/**",
 	            "/tinymce/**",
+	            "/css/**",
 	            "/logos/**").permitAll()
     
     // Las vistas públicas no requieren autenticación
