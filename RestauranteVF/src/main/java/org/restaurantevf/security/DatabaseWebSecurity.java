@@ -48,19 +48,18 @@ public class DatabaseWebSecurity {
     // Las vistas públicas no requieren autenticación
     .requestMatchers("/", 
     			 "/login",
-    			 "/busquedas",
     			 "/index", 
     			 "/signup",
-    			 "/search",
     			 "/bcrypt/**",
     			 "/about",
-    			 "/vacantes/view/**").permitAll()
+    			 "/restaurantes/view/**").permitAll()
 
 
     // Asignar permisos a URLs por ROLES
-    .requestMatchers("/solicitudes/create/**",
-    			 "/solicitudes/save/**", "/index/**").hasAuthority("USUARIO")
+    .requestMatchers("/reservas/create/**",
+    			 "/reservas/save/**", "/index/**").hasAuthority("USUARIO")
     
+    .requestMatchers("/reservas/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
     .requestMatchers("/busquedas/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
     .requestMatchers("/restaurantes/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
     .requestMatchers("/paises/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
