@@ -51,13 +51,12 @@ public class DatabaseWebSecurity {
     			 "/index", 
     			 "/signup",
     			 "/bcrypt/**",
-    			 "/about",
-    			 "/restaurantes/view/**").permitAll()
+    			 "/about").permitAll()
 
 
     // Asignar permisos a URLs por ROLES
     .requestMatchers("/reservas/create/**",
-    			 "/reservas/save/**", "/index/**","/busquedas/indexx/**").hasAuthority("USUARIO")
+    			 "/reservas/save/**", "/index/**").hasAuthority("USUARIO")
     
     .requestMatchers("/reservas/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
     .requestMatchers("/busquedas/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
