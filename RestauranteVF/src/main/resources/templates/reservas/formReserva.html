@@ -41,12 +41,8 @@
                     <div class="col-md-6"> 
                       <div class="form-group">
                         <input type="hidden" th:name="restaurante.id" th:value="${restaurante.id}">
-                        <label for="comentarios">Comentarios</label>
-                        <textarea class="form-control" name="comentarios" th:field="*{comentarios}" id="comentarios" rows="2"></textarea>
-                      </div> 
-                    </div> 
-                    
-    <div class="row">
+                        
+                        <div class="row">
     <div class="col-auto">
         <ul class="list-inline pb-3">
             <li class="list-inline-item text-right">
@@ -59,9 +55,12 @@
         </ul>
     </div>
 </div>
-
-                    
-                    
+                        
+                        
+                        <label for="comentarios">Comentarios</label>
+                        <textarea class="form-control" name="comentarios" th:field="*{comentarios}" id="comentarios" rows="2"></textarea>
+                      </div> 
+                    </div> 
                     <div class="col-md-6"> 
                       <div class="form-group">
                         <label for="archivoCV">Identificación</label>
