@@ -13,3 +13,9 @@ input[type="date"] {
 input[type="date"]::-webkit-calendar-picker-indicator {
   color: #dd3445;
 }
+
+input::selection {
+  background-color: #dd3445;
+  color: #fff;
+}
+
