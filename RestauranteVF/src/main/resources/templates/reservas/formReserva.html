@@ -43,24 +43,25 @@
                         <input type="hidden" th:name="restaurante.id" th:value="${restaurante.id}">
                         <label for="comentarios">Comentarios</label>
                         <textarea class="form-control" name="comentarios" th:field="*{comentarios}" id="comentarios" rows="2"></textarea>
-                      </div>
-                      
-                       <div class="col-md-6"> 
-                      <div class="form-group">
-                        <div class="col-auto">
-                                        <ul class="list-inline pb-3">
-                                            <li class="list-inline-item text-right">
-                                                Quantity
-                                                <input type="hidden" name="product-quanity" id="product-quanity" value="1">
-                                            </li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
-                                            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
-                                        </ul>
-                                    </div>
                       </div> 
-                       
                     </div> 
+                    
+    <div class="row">
+    <div class="col-auto">
+        <ul class="list-inline pb-3">
+            <li class="list-inline-item text-right">
+                Quantity
+                <input type="hidden" name="product-quanity" id="product-quanity" value="1">
+            </li>
+            <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
+            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
+            <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
+        </ul>
+    </div>
+</div>
+
+                    
+                    
                     <div class="col-md-6"> 
                       <div class="form-group">
                         <label for="archivoCV">Identificación</label>
