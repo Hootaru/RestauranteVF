@@ -1,11 +1,17 @@
-.datetime-label {
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.datetime-input {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
+ .datetime-label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+    }
+    .datetime-input {
+        display: block;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        width: 300px;
+        margin-bottom: 20px;
+    }

@@ -1,5 +1,3 @@
-$(function () {
-  $('#reservation-datetime').datetimepicker({
-    format: 'YYYY-MM-DD HH:mm:ss'
-  });
-});
+const currentDate = new Date().toISOString().split("T")[0];
+document.querySelector("#fecha-hora").setAttribute("min", currentDate);
+
