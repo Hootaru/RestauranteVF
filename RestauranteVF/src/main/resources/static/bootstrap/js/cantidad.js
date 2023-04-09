@@ -14,7 +14,7 @@ $(document).ready(function(){
         $("#product-quanity").val(quantity);
     });
 });
-$('.btn-size').click(function(){
+$('#btn-size').click(function(){
       var this_val = $(this).html();
       $("#product-size").val(this_val);
       $(".btn-size").removeClass('btn-secondary');
