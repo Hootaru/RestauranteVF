@@ -7,15 +7,8 @@ input[type="date"] {
   border-radius: 5px;
   font-size: 16px;
   width: 200px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  box-shadow: 0 2px 4px #e46772;;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  color: #dd3445;
-}
 
-input::selection {
-  background-color: #dd3445;
-  color: #fff;
-}
 
