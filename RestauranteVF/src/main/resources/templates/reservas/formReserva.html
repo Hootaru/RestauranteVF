@@ -15,16 +15,6 @@
     <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
     <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">    
   </head>
-  
-  <!-- FullCalendar core CSS -->
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css' />
-
-<!-- jQuery -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-
-<!-- FullCalendar core JS -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
-
 
   <body>
 
@@ -65,16 +55,20 @@
     </div>
 </div>
 
-<div class="product-size-section">
-    <ul class="list-inline pb-3">
-        <li class="list-inline-item">Zona del restaurante:
-            <input type="hidden" name="product-size" id="product-size" value="S">
-        </li>
-        <li class="list-inline-item"><span class="btn btn-danger" id="btn-size">Interior</span></li>
-        <li class="list-inline-item"><span class="btn btn-danger" id="btn-size">Exterior</span></li>
-        <li class="list-inline-item"><span class="btn btn-danger" id="btn-size">Terraza</span></li>
-    </ul>
+<div class="row">
+    <div class="col-auto">
+        <ul class="list-inline pb-3">
+            <li class="list-inline-item">Zona del restaurante:
+                <input type="hidden" name="product-size" id="product-size" value="I">
+            </li>
+            <li class="list-inline-item"><span class="btn btn-success btn-size active" data-size="I">Interior</span></li>
+            <li class="list-inline-item"><span class="btn btn-success btn-size" data-size="E">Exterior</span></li>
+            <li class="list-inline-item"><span class="btn btn-success btn-size" data-size="T">Terraza</span></li>
+       
+        </ul>
+    </div>
 </div>
+
 
 
 <div id='calendar'></div>                        
@@ -110,6 +104,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script th:src="@{/bootstrap/js/cantidad.js}"></script>  
+    <script th:src="@{/bootstrap/js/lugares.js}"></script>
     <script th:src="@{/bootstrap/js/calendario.js}"></script>      
     <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>     
   </body>
