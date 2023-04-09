@@ -62,7 +62,7 @@
                     <div class="col-md-6"> 
                       <div class="form-group">
                         <input type="hidden" th:name="restaurante.id" th:value="${restaurante.id}">
-                        <h6 class="card-title"><strong>Precio por persona: </strong><span th:text="${restaurante.precio}">$9000</span><strong> MXN</strong></h6> 
+                        <h6 class="card-title"><strong>Precio por persona: </strong><span th:text="${restaurante.precio}">$9000</span><strong> MXN</strong></h6><br> 
                         <div class="row">
 							<br>
     <div class="col-auto">
@@ -96,7 +96,7 @@
 
 		<label for="fecha-hora">Seleccione la fecha:</label><br>
       <input type="date" id="fechaReserva" onkeydown="return false" name="created_at" class="datetime-input">
-      <br>
+      <br><br>
       
       <label for="hora-reserva" class="datetime-label">Seleccione una hora:</label>
 <input type="time" id="hora-reserva" name="hora-reserva" class="datetime-input">
