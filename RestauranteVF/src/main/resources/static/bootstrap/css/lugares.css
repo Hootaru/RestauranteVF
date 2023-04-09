@@ -1,17 +1,10 @@
- .datetime-label {
-        display: block;
-        margin-bottom: 10px;
-        font-size: 18px;
-        font-weight: bold;
-        color: #333;
-    }
-    .datetime-input {
-        display: block;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        outline: none;
-        width: 300px;
-        margin-bottom: 20px;
-    }
+input[type="date"] {
+  border: none;
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 200px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
