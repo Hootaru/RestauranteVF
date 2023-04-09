@@ -1,4 +1,11 @@
-.btn-size.active {
-  background-color: rgb(255, 0, 0);
-  color: #fff;
+.datetime-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.datetime-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }
