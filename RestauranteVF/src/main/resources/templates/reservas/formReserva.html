@@ -32,8 +32,7 @@
               <h4 class="card-header">Reservar en el Restaurante <strong><span th:text="${restaurante.nombre}"></span></strong></h4>              
               <div class="card-body">
                 <h5 class="card-title"><strong>Pais: </strong><span th:text="${restaurante.pais.nombre}"></span></h5>
-                <h6 class="card-title"><strong>Publicado: </strong><span th:text="${#dates.format(restaurante.fecha, 'dd-MM-yyyy')}"></span></h6>
-                <h6 class="card-title"><strong>Precio: </strong><span th:text="${restaurante.precio}">$9000</span></h6>                
+                <h6 class="card-title"><strong>Publicado: </strong><span th:text="${#dates.format(restaurante.fecha, 'dd-MM-yyyy')}"></span></h6>               
                 <p class="card-text" th:text="${restaurante.descripcion}"></p>
                 <hr>
                 <form th:action="@{/reservas/save}" th:object="${reserva}" method="post" enctype="multipart/form-data">                                                 
@@ -41,7 +40,7 @@
                     <div class="col-md-6"> 
                       <div class="form-group">
                         <input type="hidden" th:name="restaurante.id" th:value="${restaurante.id}">
-                        
+                        <h6 class="card-title"><strong>Precio por persona: </strong><span th:text="${restaurante.precio}">$9000</span></h6> 
                         <div class="row">
     <div class="col-auto">
         <ul class="list-inline pb-3">
