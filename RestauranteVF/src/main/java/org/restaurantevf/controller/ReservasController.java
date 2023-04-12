@@ -100,8 +100,7 @@ public class ReservasController {
 	 * @return
 	 */
 	@PostMapping("/save")
-	public String guardar(Reserva reserva, BindingResult result, Model model, HttpSession session,
-			@RequestParam("archivoCV") MultipartFile multiPart, RedirectAttributes attributes, Authentication authentication) {	
+	public String guardar(Reserva reserva, BindingResult result, Model model, HttpSession session, RedirectAttributes attributes, Authentication authentication) {	
 		
 		// Recuperamos el username que inicio sesión
 		String username = authentication.getName();
