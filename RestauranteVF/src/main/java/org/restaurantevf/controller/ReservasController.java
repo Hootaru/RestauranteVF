@@ -112,14 +112,14 @@ public class ReservasController {
 			return "reservas/formReserva";
 		}	
 		
-		if (!multiPart.isEmpty()) {
+		//if (!multiPart.isEmpty()) {
 			//String ruta = "/empleos/files-cv/"; // Linux/MAC
 			//String ruta = "c:/empleos/files-cv/"; // Windows
-			String nombreArchivo = Utileria.guardarArchivo(multiPart, ruta);
-			if (nombreArchivo!=null){ // El archivo (CV) si se subio				
-				reserva.setArchivo(nombreArchivo); // Asignamos el nombre de la imagen
-			}	
-		}
+		//String nombreArchivo = Utileria.guardarArchivo(multiPart, ruta);
+		//if (nombreArchivo!=null){ // El archivo (CV) si se subio				
+		//	reserva.setArchivo(nombreArchivo); // Asignamos el nombre de la imagen
+		//}	
+		//}
 
 		// Buscamos el objeto Usuario en BD	
 		Usuario usuario = serviceUsuario.buscarPorUsername(username);			

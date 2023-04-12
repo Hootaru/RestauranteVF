@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.restaurantevf.entity.Restaurante;
 import org.restaurantevf.services.PaisService;
 import org.restaurantevf.services.RestauranteService;
 import org.restaurantevf.util.Utileria;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -26,11 +28,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import org.restaurantevf.entity.Restaurante;
-
 @Controller
 @RequestMapping(value="/restaurantes")
 public class RestaurantesController {
+	
+	@Autowired
+	private Utileria util;
 	
 	@Value("${empleosapp.ruta.imagenes}")
 	private String ruta;
@@ -81,32 +84,43 @@ public class RestaurantesController {
 	 * @param attributes
 	 * @return
 	 */
+	
+	// Metodo Usiel
+	
 	@PostMapping("/save")
-	public String guardar(@ModelAttribute Restaurante restaurante, BindingResult result, Model model,
-			@RequestParam("archivoImagen") MultipartFile multiPart, RedirectAttributes attributes ) {	
-		
-		if (result.hasErrors()){
-			
-			System.out.println("Existieron errores");
+	public String guardar(Restaurante restaurante, BindingResult result, Model model, RedirectAttributes model2,
+			@RequestParam("archivoImagen") MultipartFile file) {
+		if (result.hasErrors()) {
+			for (ObjectError error : result.getAllErrors()) {
+				System.out.println("Ocurrio un error: " + error.getDefaultMessage());
+			}
+			model.addAttribute("restaurantes", serviceRestaurantes.buscarTodos());
 			return "restaurantes/formRestaurante";
-		}	
-		
-		if (!multiPart.isEmpty()) {
-			//String ruta = "/empleos/img-vacantes/"; // Linux/MAC
-			//String ruta = "c:/empleos/img-vacantes/"; // Windows
-			String nombreImagen = Utileria.guardarArchivo(multiPart, ruta);
-			if (nombreImagen!=null){ // La imagen si se subio				
-				restaurante.setImagen(nombreImagen); // Asignamos el nombre de la imagen
-			}	
 		}
-				
-		// Guadamos el objeto vacante en la bd
+		if (restaurante.getId() == null) {
+			if (!file.isEmpty()) {
+				String fileName = util.uploadImage(file);
+				if (fileName != null) {
+					restaurante.setImagen(fileName);
+				}
+			}
+			model2.addFlashAttribute("msg", "La información del Restaurante ha sido agregada correctamente.");
+		} else {
+			if (!file.isEmpty()) {
+				String fileName = util.uploadImage(file);
+				if (fileName != null) {
+					restaurante.setImagen(fileName);
+					model2.addFlashAttribute("msg", "La información del Restaurante ha sido modificada correctamente");
+				}
+			} else {
+				Restaurante r = serviceRestaurantes.buscarPorId(restaurante.getId());
+				restaurante.setImagen(r.getImagen());
+			}
+		}
 		serviceRestaurantes.guardar(restaurante);
-		attributes.addFlashAttribute("msg", "Los datos del restaurante fueron guardados!");
-			
-		//return "redirect:/vacantes/index";
 		return "redirect:/restaurantes/indexPaginate";		
 	}
+	
 	
 	/**
 	 * Método para renderizar la vista de los Detalles para una  determinada Vacante
