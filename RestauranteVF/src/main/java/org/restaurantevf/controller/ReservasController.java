@@ -7,7 +7,6 @@ import org.restaurantevf.entity.Usuario;
 import org.restaurantevf.services.ReservasService;
 import org.restaurantevf.services.RestauranteService;
 import org.restaurantevf.services.UsuariosService;
-import org.restaurantevf.util.Utileria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -32,9 +31,6 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/reservas")
 public class ReservasController {
-	
-	@Value("${empleosapp.ruta.cv}")
-	private String ruta;
 	
 	// Inyectamos una instancia desde nuestro ApplicationContext
     @Autowired
