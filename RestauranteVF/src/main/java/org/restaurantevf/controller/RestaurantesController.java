@@ -35,9 +35,6 @@ public class RestaurantesController {
 	@Autowired
 	private Utileria util;
 	
-	@Value("${empleosapp.ruta.imagenes}")
-	private String ruta;
-	
 	// Inyectamos una instancia desde nuestro ApplicationContext
     @Autowired
 	private RestauranteService serviceRestaurantes;
