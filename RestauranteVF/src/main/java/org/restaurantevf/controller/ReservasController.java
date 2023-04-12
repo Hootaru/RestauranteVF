@@ -100,7 +100,8 @@ public class ReservasController {
 	 * @return
 	 */
 	@PostMapping("/save")
-	public String guardar(Reserva reserva, BindingResult result, Model model, HttpSession session, RedirectAttributes attributes, Authentication authentication) {	
+	public String guardar(Reserva reserva, BindingResult result, Model model, HttpSession session,
+			@RequestParam("archivoCV") MultipartFile multiPart, RedirectAttributes attributes, Authentication authentication) {	
 		
 		// Recuperamos el username que inicio sesión
 		String username = authentication.getName();
@@ -111,6 +112,15 @@ public class ReservasController {
 			return "reservas/formReserva";
 		}	
 		
+		if (!multiPart.isEmpty()) {
+			//String ruta = "/empleos/files-cv/"; // Linux/MAC
+			//String ruta = "c:/empleos/files-cv/"; // Windows
+			String nombreArchivo = Utileria.guardarArchivo(multiPart, ruta);
+			if (nombreArchivo!=null){ // El archivo (CV) si se subio				
+				reserva.setArchivo(nombreArchivo); // Asignamos el nombre de la imagen
+			}	
+		}
+
 		// Buscamos el objeto Usuario en BD	
 		Usuario usuario = serviceUsuario.buscarPorUsername(username);			
 		reserva.setUsuario(usuario); // Referenciamos la solicitud con el usuario
