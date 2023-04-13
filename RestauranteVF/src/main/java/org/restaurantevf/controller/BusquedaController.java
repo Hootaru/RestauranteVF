@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+
 @Controller
 @RequestMapping("/busquedas")
 public class BusquedaController {
@@ -46,7 +47,7 @@ public class BusquedaController {
 		 * "Aprobada". Entonces forzamos ese filtrado.
 		 */
 		
-		restaurante.setEstatus("Aprobada");
+		restaurante.setEstatus("Aprobado");
 		
 		// Personalizamos el tipo de busqueda...
 		ExampleMatcher matcher  = ExampleMatcher.matching().
@@ -58,6 +59,7 @@ public class BusquedaController {
 		model.addAttribute("restaurantes", lista);
 		return "busqueda";
 	}
+	
 	
 	/**
 	 * Metodo que agrega al modelo datos genéricos para todo el controlador
