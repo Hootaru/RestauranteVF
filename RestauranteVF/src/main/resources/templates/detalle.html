@@ -37,7 +37,7 @@
 				</div>
                 <h5 class="card-title"><strong>Pais: </strong> <span th:text="${restaurante.pais.nombre}">Nombre la categoría</span></h5>
                 <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${#dates.format(restaurante.fecha, 'dd-MM-yyyy')}">2019-01-01</span></h6>
-                <h6 class="card-title"><strong>Precio: $</strong><span th:text="${restaurante.precio}">$9000</span></h6>                
+                <h6 class="card-title"><strong>Precio: $</strong><span th:text="${restaurante.precio}">$9000</span><strong>MXN</strong>Por persona</h6>                
                 <p class="card-text" th:text="${restaurante.descripcion}">La descripción corta de la oferta de trabajo</p>
                 
                 <div class="card bg-light mb-3" >
