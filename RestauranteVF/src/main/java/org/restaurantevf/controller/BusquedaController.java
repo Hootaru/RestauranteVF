@@ -1,18 +1,10 @@
 package org.restaurantevf.controller;
 
-import java.util.List;
-
-
 import org.restaurantevf.entity.Restaurante;
-
 import org.restaurantevf.services.PaisService;
 import org.restaurantevf.services.RestauranteService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -20,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -39,22 +32,10 @@ public class BusquedaController {
 	}
 
 	@GetMapping("/search")
-	public String buscar(@ModelAttribute("search") Restaurante restaurante, Model model) {
-		
-		/**
-		 * La busqueda de vacantes desde el formulario debera de ser únicamente en Vacantes con estatus 
-		 * "Aprobada". Entonces forzamos ese filtrado.
-		 */
-		restaurante.setEstatus("Aprobada");
-		
-		// Personalizamos el tipo de busqueda...
-		ExampleMatcher matcher  = ExampleMatcher.matching().
-			// and descripcion like '%?%'
-			withMatcher("descripcion", ExampleMatcher.GenericPropertyMatchers.contains());
-		
-		Example<Restaurante> example = Example.of(restaurante, matcher);
-		List<Restaurante> lista = serviceRestaurante.buscarByExample(example);
-		model.addAttribute("vacantes", lista);
+	public String modificarProducto(@RequestParam("id") int idProducto, Model model) {
+		Restaurante restaurante = serviceRestaurante.buscarPorId(idProducto);
+		model.addAttribute("restaurante", restaurante);
+		model.addAttribute("pais", servicePais.buscarTodos());
 		return "busqueda";
 	}
 	
