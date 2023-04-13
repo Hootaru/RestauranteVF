@@ -28,11 +28,11 @@
           </div>
           <div class="col-md-9">
             <div class="card">
-              <h4 class="card-header"><strong>Aplicar para la vacante <span th:text="${restaurante.nombre}"></span></strong></h4>              
+              <h4 class="card-header"><strong>Reservar en el restaurante <span th:text="${restaurante.nombre}"></span></strong></h4>              
               <div class="card-body">
-                <h5 class="card-title"><strong>Categoría: </strong><span th:text="${restaurante.pais.nombre}"></span></h5>
+                <h5 class="card-title"><strong>País: </strong><span th:text="${restaurante.pais.nombre}"></span></h5>
                 <h6 class="card-title"><strong>Publicado: </strong><span th:text="${#dates.format(restaurante.fecha, 'dd-MM-yyyy')}"></span></h6>
-                <h6 class="card-title"><strong>Salario Ofrecido: </strong><span th:text="${restaurante.precio}">$9000</span></h6>                
+                <h6 class="card-title"><strong>Precio: </strong><span th:text="${restaurante.precio}">$9000</span> MXN <strong> por persona</strong></h6>                
                 <p class="card-text" th:text="${restaurante.descripcion}"></p>
                 <hr>
                 <form th:action="@{/reservas/save}" th:object="${reserva}" method="post" enctype="multipart/form-data">                                                 
@@ -54,7 +54,7 @@
                     </div>
                   </div> 
                   <hr>
-                  <button type="submit" class="btn btn-primary">Enviar</button>  
+                  <button type="submit" class="btn btn-danger">Enviar</button>  
                 </form>
               </div>
             </div> 
