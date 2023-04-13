@@ -54,7 +54,8 @@
                     </div>
                   </div> 
                   <hr>
-                  <button type="submit" class="btn btn-danger">Enviar</button>  
+                  <!--<a sec:authorize="isAuthenticated() and hasAnyAuthority('USUARIO')" class="btn btn-warning" th:href="@{/reservas/save}" role="button" title="Quiero aplicar para esta oferta de trabajo."><i class="fas fa-file" aria-hidden="true"></i> Reservar</a>-->                            
+                   <button sec:authorize="isAuthenticated() and hasAnyAuthority('USUARIO')" type="submit" class="btn btn-danger"><i class="fas fa-file" aria-hidden="true"></i> Reservar</button>  
                 </form>
               </div>
             </div> 

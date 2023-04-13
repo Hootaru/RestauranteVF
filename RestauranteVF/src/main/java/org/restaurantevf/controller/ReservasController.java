@@ -109,7 +109,7 @@ public class ReservasController {
 		if (result.hasErrors()){
 			
 			System.out.println("Existieron errores");
-			return "solicitudes/formSolicitud";
+			return "reservas/formReserva";
 		}	
 		
 		if (reserva.getId() == null) {
@@ -119,13 +119,13 @@ public class ReservasController {
 					reserva.setImagen(fileName);
 				}
 			}
-			model2.addFlashAttribute("msg", "La información del Restaurante ha sido agregada correctamente.");
+			model2.addFlashAttribute("msg", "La información de la Reserva ha sido agregada correctamente.");
 		} else {
 			if (!file.isEmpty()) {
 				String fileName = util.uploadImage(file);
 				if (fileName != null) {
 					reserva.setImagen(fileName);
-					model2.addFlashAttribute("msg", "La información del Restaurante ha sido modificada correctamente");
+					model2.addFlashAttribute("msg", "La información de la Reserva ha sido modificada correctamente");
 				}
 			} else {
 				Reserva r = reservasService.buscarPorId(reserva.getId());
@@ -133,8 +133,6 @@ public class ReservasController {
 			}
 		}
 		
-		
-
 		// Buscamos el objeto Usuario en BD	
 		Usuario usuario = serviceUsuario.buscarPorUsername(username);			
 		reserva.setUsuario(usuario); // Referenciamos la solicitud con el usuario
