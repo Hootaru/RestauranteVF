@@ -3,18 +3,18 @@ package org.restaurantevf.controller;
 import java.util.List;
 
 import org.restaurantevf.entity.Reserva;
-import org.restaurantevf.entity.Usuario;
+
 import org.restaurantevf.services.ReservasService;
 import org.restaurantevf.services.RestauranteService;
-import org.restaurantevf.services.UsuariosService;
+
 import org.restaurantevf.util.Utileria;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.security.core.Authentication;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,7 +28,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.restaurantevf.entity.Restaurante;
 
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/reservas")
@@ -40,9 +39,6 @@ public class ReservasController {
 	// Inyectamos una instancia desde nuestro ApplicationContext
     @Autowired
 	private RestauranteService serviceRestaurantes;
-    
-    @Autowired
-   	private UsuariosService serviceUsuario;
 	
     // Inyectamos una instancia desde nuestro ApplicationContext
     @Autowired
@@ -117,16 +113,16 @@ public class ReservasController {
 					reserva.setImagen(fileName);
 				}
 			}
-			model2.addFlashAttribute("msg", "La información del Restaurante ha sido agregada correctamente.");
+			model2.addFlashAttribute("msg", "Gracias por reservar en RestauranteVF!.");
 		} else {
 			if (!file.isEmpty()) {
 				String fileName = util.uploadImage(file);
 				if (fileName != null) {
 					reserva.setImagen(fileName);
-					model2.addFlashAttribute("msg", "La información del Restaurante ha sido modificada correctamente");
+					model2.addFlashAttribute("msg", "La información de la Reserva ha sido modificada correctamente");
 				}
 			} else {
-				Restaurante r = serviceRestaurantes.buscarPorId(reserva.getId());
+				Reserva r = reservasService.buscarPorId(reserva.getId());
 				reserva.setImagen(r.getImagen());
 			}
 		}
