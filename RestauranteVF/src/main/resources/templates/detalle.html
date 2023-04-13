@@ -33,7 +33,7 @@
               <h4 class="card-header">Detalles del Restaurante <strong th:text="${restaurante.nombre}">Ingeniero Civil</strong></h4>              
               <div class="card-body">
               	<div class="alert alert-danger" role="alert" sec:authorize="isAnonymous()">
-				  ¿Te interesa esta Vacante? <strong>Regístrate</strong> y después ingresa para enviar tu CV.
+				  ¿Te interesa esta Restaurante? <strong>Regístrate</strong> y después ingresa para hacer tu reserva.
 				</div>
                 <h5 class="card-title"><strong>Pais: </strong> <span th:text="${restaurante.pais.nombre}">Nombre la categoría</span></h5>
                 <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${#dates.format(restaurante.fecha, 'dd-MM-yyyy')}">2019-01-01</span></h6>
