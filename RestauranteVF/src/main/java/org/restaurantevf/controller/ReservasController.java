@@ -7,6 +7,7 @@ import org.restaurantevf.entity.Usuario;
 import org.restaurantevf.services.ReservasService;
 import org.restaurantevf.services.RestauranteService;
 import org.restaurantevf.services.UsuariosService;
+import org.restaurantevf.util.Utileria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -17,6 +18,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +33,9 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/reservas")
 public class ReservasController {
+	
+	@Autowired
+	private Utileria util;
 	
 	// Inyectamos una instancia desde nuestro ApplicationContext
     @Autowired
@@ -96,36 +101,36 @@ public class ReservasController {
 	 * @return
 	 */
 	@PostMapping("/save")
-	public String guardar(Reserva reserva, BindingResult result, Model model, HttpSession session,
-			@RequestParam("archivoCV") MultipartFile multiPart, RedirectAttributes attributes, Authentication authentication) {	
-		
-		// Recuperamos el username que inicio sesión
-		String username = authentication.getName();
-		
-		if (result.hasErrors()){
-			
-			System.out.println("Existieron errores");
+	public String guardar(Reserva reserva, BindingResult result, Model model, RedirectAttributes model2,
+			@RequestParam("archivoImagen") MultipartFile file) {
+		if (result.hasErrors()) {
+			for (ObjectError error : result.getAllErrors()) {
+				System.out.println("Ocurrio un error: " + error.getDefaultMessage());
+			}
+			model.addAttribute("reservas", reservasService.buscarTodas());
 			return "reservas/formReserva";
-		}	
-		
-		//if (!multiPart.isEmpty()) {
-			//String ruta = "/empleos/files-cv/"; // Linux/MAC
-			//String ruta = "c:/empleos/files-cv/"; // Windows
-		//String nombreArchivo = Utileria.guardarArchivo(multiPart, ruta);
-		//if (nombreArchivo!=null){ // El archivo (CV) si se subio				
-		//	reserva.setArchivo(nombreArchivo); // Asignamos el nombre de la imagen
-		//}	
-		//}
-
-		// Buscamos el objeto Usuario en BD	
-		Usuario usuario = serviceUsuario.buscarPorUsername(username);			
-		reserva.setUsuario(usuario); // Referenciamos la solicitud con el usuario
-		
-		// Guadamos el objeto solicitud en la bd
+		}
+		if (reserva.getId() == null) {
+			if (!file.isEmpty()) {
+				String fileName = util.uploadImage(file);
+				if (fileName != null) {
+					reserva.setImagen(fileName);
+				}
+			}
+			model2.addFlashAttribute("msg", "La información del Restaurante ha sido agregada correctamente.");
+		} else {
+			if (!file.isEmpty()) {
+				String fileName = util.uploadImage(file);
+				if (fileName != null) {
+					reserva.setImagen(fileName);
+					model2.addFlashAttribute("msg", "La información del Restaurante ha sido modificada correctamente");
+				}
+			} else {
+				Restaurante r = serviceRestaurantes.buscarPorId(reserva.getId());
+				reserva.setImagen(r.getImagen());
+			}
+		}
 		reservasService.guardar(reserva);
-		attributes.addFlashAttribute("msg", "Gracias por reservar en RestauranteVF");
-			
-		System.out.println("Reserva:" + reserva);
 		return "redirect:/";		
 	}
 	

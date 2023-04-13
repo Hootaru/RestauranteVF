@@ -22,7 +22,7 @@ public class Reserva {
 	private Integer id;
 	private LocalDate fecha; 
 	private String comentarios;
-	private String archivo; 
+	private String imagen; 
 
 	@OneToOne
 	@JoinColumn(name = "idRestaurante") // foreignKey en la tabla de solicitudes
@@ -52,12 +52,12 @@ public class Reserva {
 		this.fecha = fecha;
 	}
 
-	public String getArchivo() {
-		return archivo;
+	public String getImagen() {
+		return imagen;
 	}
 
-	public void setArchivo(String archivo) {
-		this.archivo = archivo;
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 	public Restaurante getRestaurante() {
@@ -86,7 +86,7 @@ public class Reserva {
 
 	@Override
 	public String toString() {
-		return "Solicitud [id=" + id + ", fecha=" + fecha + ", comentarios=" + comentarios + ", archivo=" + archivo
+		return "Solicitud [id=" + id + ", fecha=" + fecha + ", comentarios=" + comentarios + ", imagen=" + imagen
 				+ ", restaurante=" + restaurante + ", usuario=" + usuario + "]";
 	}
 
